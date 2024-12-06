@@ -1,0 +1,223 @@
+:root {
+    --primary-color: #e63946;
+    --secondary-color: #2a9d8f;
+    --background: #f1faee;
+    --text-color: #1d3557;
+    --card-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --christmas-gradient: linear-gradient(45deg, #e63946 0%, #2a9d8f 100%);
+    --holly-green: #165B33;
+    --candy-red: #BB2528;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--text-color);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    background-image: 
+        linear-gradient(45deg, 
+            transparent 0%,
+            transparent 45%,
+            rgba(22, 91, 51, 0.05) 45%,
+            rgba(22, 91, 51, 0.05) 55%,
+            transparent 55%,
+            transparent 100%),
+        linear-gradient(-45deg,
+            transparent 0%,
+            transparent 45%,
+            rgba(187, 37, 40, 0.05) 45%,
+            rgba(187, 37, 40, 0.05) 55%,
+            transparent 55%,
+            transparent 100%);
+    background-size: 20px 20px;
+    background-color: var(--background);
+}
+
+.snowfall {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin: 0;
+    text-shadow: 2px 2px 4px var(--shadow);
+    animation: sparkle 2s infinite;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.wish-list {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.wish-item {
+    position: relative;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.wish-item::before {
+    content: "🎄";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+}
+
+.wish-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--christmas-gradient);
+}
+
+.price-tag::before {
+    content: "🎁";
+    margin-right: 8px;
+}
+
+.buy-button {
+    background: var(--christmas-gradient);
+    box-shadow: 0 0 15px rgba(187, 37, 40, 0.4);
+}
+
+.buy-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(187, 37, 40, 0.6);
+}
+
+.product-header img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px rgba(22, 91, 51, 0.3));
+}
+
+@media (max-width: 768px) {
+    .wish-list {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .wish-item {
+        max-width: 100%;
+    }
+}}
+
+.wish-item {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.product-header {
+    padding: 20px;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.product-header img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.product-header img:hover {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.price-tag {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin: 15px 0;
+}
+
+.buy-button {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.buy-button:hover {
+    transform: translateY(-2px);
+    background: #d32f2f;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+    --background: #1a1a1a;
+    --text-color: #ffffff;
+    --card-bg: #2d2d2d;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+.img-light {
+    display: none;
+}
+
+.img-dark {
+    display: block;
+}
